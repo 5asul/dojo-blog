@@ -12,10 +12,10 @@ const Create = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const blog= {title, body, author:'mario'};
-
+        const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
         setIsPending(true);
 
-        fetch('http://localhost:4000/blogs',{
+        fetch(`${baseURL}/blogs`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(blog)

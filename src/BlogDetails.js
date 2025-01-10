@@ -6,9 +6,9 @@ const BlogDetails = () => {
     const {id} = useParams();
     const {data: blog , error , isPending}= useFetch('http://localhost:4000/blogs/'+id);
     const history = useHistory();
-    
+    const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
     const handleClick = async () => {
-        fetch('http://localhost:4000/blogs/'+blog.id,{
+        fetch(`${baseURL}/blogs/`+blog.id,{
             method: 'DELETE',
 
         }).then(() => {
