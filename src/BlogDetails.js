@@ -3,10 +3,10 @@ import useFetch from "./useFetch";
 
 
 const BlogDetails = () => {
-    const {id} = useParams();
-    const {data: blog , error , isPending}= useFetch('http://localhost:4000/blogs/'+id);
-    const history = useHistory();
     const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+    const {id} = useParams();
+    const {data: blog , error , isPending}= useFetch(`${baseURL}/blogs/`+id);
+    const history = useHistory();
     const handleClick = async () => {
         fetch(`${baseURL}/blogs/`+blog.id,{
             method: 'DELETE',
